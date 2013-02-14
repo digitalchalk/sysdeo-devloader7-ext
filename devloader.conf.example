@@ -1,0 +1,12 @@
+# jars that match these regexes are excluded from the tomcat classpath
+# default configration
+#
+# put this file in $CATALINA_BASE/conf/devloader.conf
+#
+(.*)/servlet-api(.*).jar
+(.*)/javax.servlet-3.0.jar
+(.*)/javax.servlet-api-(.*).jar
+(.*)/jsp-api(.*).jar
+(.*)/test-classes/$
+(.*)/tomcat-(.*).jar
+(.*)/javax.servlet.jsp-api-(.*).jar

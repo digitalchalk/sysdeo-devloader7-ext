@@ -6,8 +6,8 @@ Modified DevLoader for Tomcat7 and Sysdeo Eclipse Plugin.  Allows for exclusion 
 Background
 ----------
 
-This project creates a jar file that is a replacement for the Sysdeo Tomcat Launcher Plugin for Eclipse's own DevLoaderTomcat7.jar.  (See the Sysdeo plugin
-home page at http://www.eclipsetotale.com/tomcatPlugin.html for more information on the Plugin).
+This project creates a jar file that is a replacement for the Sysdeo Tomcat Launcher Plugin for Eclipse's own DevLoaderTomcat7.jar.  (See the [Sysdeo plugin
+home page] (http://www.eclipsetotale.com/tomcatPlugin.html) for more information on the Plugin).
 
 Note that this project replaces only the Devloader jar file in CATALINA/lib, not the Sysdeo plugin itself.  You should continue to use the original plugin.
 
@@ -25,7 +25,7 @@ In order to use this devloader, you need to do a few things:
 
 * Replace DevloaderTomcat7.jar with the jar produced by this project (Tomcat7ModifiedDevloader.jar) in CATALINA_HOME/lib
 
-* (Optional) Create a configuration file for the modified devloader in CATALINA_BASE/devloader.conf.  See devloader.conf.example for an example of this file
+* (Optional) Create a configuration file for the modified devloader in CATALINA_BASE/conf/devloader.conf.  See devloader.conf.example for an example of this file
 
 * Add a JarScanner line to your Tomcat 7's master context.xml file.  For example:
 
