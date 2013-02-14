@@ -18,7 +18,7 @@ Usage
 
 In order to use this devloader, you need to do a few things:
 
-* Setup the Sysdeo plugin for Eclipse and your Tomcat7 instance (see Sysdeo plugin homepage [1] for more info on this setup)
+* Setup the Sysdeo plugin for Eclipse and your Tomcat7 instance (see [Sysdeo plugin homepage] [1] for more info on this setup)
 
 * Replace DevloaderTomcat7.jar with the jar produced by this project (Tomcat7ModifiedDevloader.jar) in CATALINA_HOME/lib
 
