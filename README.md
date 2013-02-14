@@ -29,13 +29,13 @@ In order to use this devloader, you need to do a few things:
 
 * Add a JarScanner line to your Tomcat 7's master context.xml file.  For example:
 
-    <Context>
+        <Context>
     	
-    	<JarScanner scanClassPath="true" scanAllFiles="false" scanAllDirectories="true"></JarScanner>
+    	    <JarScanner scanClassPath="true" scanAllFiles="false" scanAllDirectories="true"></JarScanner>
     	
-    	... other stuff specific to your context
+    	    ... other stuff specific to your context
     	
-    </Context>
+        </Context>
     
 Then you can use the Sysdeo plugin as normal, and the modified Devloader will pick up on ServletContainerInitializer objects, and also modify your classpath as you set up in devloader.conf!  Happy Coding!    
     
