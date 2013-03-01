@@ -45,12 +45,33 @@ public void startInternal()
       File f = new File(entry);
 
 	  if(!f.exists()) {
+		  try {
 			if(entry.matches("^/([\\w-]+)$")) {
 				String modEntry = ".." + entry + "/target/classes";  // Maven classpath hack
-				log("modified " + modEntry + " (original: " + entry + ")");
-				entry = modEntry;
-				f = new File(entry);
+				File fprime = new File(modEntry);
+				if(!fprime.exists() && webClassPathEntries != null && webClassPathEntries.size() > 0) {
+					// Maven multi-module hack...
+					String rmaster = webClassPathEntries.get(0).toString();
+					String[] pparts = rmaster.split("/");
+					if(pparts != null && pparts.length > 2) {
+						rmaster = rmaster.replaceAll("/" + pparts[pparts.length - 3], entry);
+						fprime = new File(rmaster);
+						if(fprime.exists()) {
+							modEntry = rmaster;							
+						}
+					}
+					
+				}
+				if(fprime.exists()) {
+					f = fprime;					
+					log("modified " + modEntry + " (original: " + entry + ")");
+					entry = modEntry;
+				}
+				
 			}
+		  } catch(Exception e) {
+			  logError("Tried to modify classpath for Devloader, but failed: " + e.getMessage());
+		  }
 	  }
 	  
 	  if(entry.matches(".*\\/target\\/classes$")) {
@@ -137,7 +158,8 @@ public void startInternal()
     File rootDir = getWebappDir();
     FileFilter filter = new FileFilter()
     {
-      public boolean accept(File file) {
+      @Override
+	public boolean accept(File file) {
         return (file.getName().equalsIgnoreCase(DevLoader.this.webClassPathFile)) || 
           (file.getName().equalsIgnoreCase(DevLoader.this.tomcatPluginFile));
       }
