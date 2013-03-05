@@ -37,7 +37,12 @@ In order to use this devloader, you need to do a few things:
     	
         </Context>
     
-Then you can use the Sysdeo plugin as normal, and the modified Devloader will pick up on ServletContainerInitializer objects, and also modify your classpath as you set up in devloader.conf!  Happy Coding!    
+Then you can use the Sysdeo plugin as normal, and the modified Devloader will pick up on ServletContainerInitializer objects, and also modify your classpath as you set up in devloader.conf!  Happy Coding!  
+
+Known Issues
+------------
+
+The modified devloader does not work with versions less than Tomcat 7.0.14 (at least).  It is known to work with Tomcat versions 7.0.34 and above.  
     
 Credits
 -------
